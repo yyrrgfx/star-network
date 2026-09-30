@@ -1,0 +1,140 @@
+---
+import '../styles/global.css';
+const { title='Star Network | Fiber Internet & Broadband in Panna', description='Star Network provides fiber internet, broadband and monthly internet plans in Panna, Madhya Pradesh, from 30 Mbps to 1 Gbps.', keywords='' } = Astro.props;
+const isHome = Astro.url.pathname === '/';
+const canonical = new URL(Astro.url.pathname, Astro.url.origin).toString();
+const fullKeywords = [
+  keywords,
+  'internet in panna', 'internet service in panna', 'internet service provider in panna',
+  'internet provider in panna', 'internet connection in panna', 'broadband in panna',
+  'broadband connection in panna', 'broadband service in panna', 'broadband provider in panna',
+  'broadband internet in panna', 'fiber internet in panna', 'fiber broadband in panna',
+  'fiber internet connection in panna', 'fiber broadband connection in panna',
+  'fiber internet service in panna', 'fiber internet provider in panna', 'high speed internet in panna',
+  'high speed broadband in panna', 'high speed fiber internet in panna', 'wifi connection in panna',
+  'home internet in panna', 'star network panna', 'star network in panna', 'star network internet panna',
+  'star network broadband panna', 'star network fiber internet panna', 'star network wifi panna',
+  'internet plans in panna', 'broadband plans in panna', 'fiber internet plans in panna',
+  'fiber broadband plans in panna', 'wifi plans in panna', 'monthly internet plans in panna',
+  'monthly broadband plans in panna', 'monthly fiber plans in panna', 'affordable internet plans in panna',
+  'high speed internet plans in panna', 'fiber internet price in panna', 'broadband price in panna',
+  '30 Mbps internet plan panna', '50 Mbps internet plan panna', '100 Mbps internet plan panna',
+  '150 Mbps internet plan panna', '200 Mbps internet plan panna', '250 Mbps internet plan panna',
+  '300 Mbps internet plan panna', '500 Mbps internet plan panna', '1 Gbps internet panna',
+  'home wifi in panna', 'home broadband connection panna', 'fiber connection for home panna',
+  'internet for office in panna', 'business internet in panna', 'business broadband in panna',
+  'business internet connection panna', 'office internet connection panna'
+].filter(Boolean).join(', ');
+---
+<!doctype html>
+<html lang="en-IN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>{title}</title>
+<meta name="description" content={description}/>
+<meta name="keywords" content={fullKeywords}/>
+<meta name="robots" content="index, follow, max-image-preview:large"/>
+<link rel="canonical" href={canonical}/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content={title}/>
+<meta property="og:description" content={description}/>
+<meta property="og:image" content={`${Astro.url.origin}/logo.png`}/>
+<meta property="og:locale" content="en_IN"/>
+<link rel="icon" href="/logo.png"/>
+<script type="application/ld+json" set:html={JSON.stringify({
+  '@context':'https://schema.org', '@type':'InternetServiceProvider',
+  name:'Star Network', url:canonical, logo:`${Astro.url.origin}/logo.png`,
+  description:'Fiber internet and broadband service provider in Panna, Madhya Pradesh.',
+  foundingDate:'2017', telephone:['+919424977692','+919575552312'], email:'starwebinnvationspvtltd@gmail.com',
+  address:{'@type':'PostalAddress',streetAddress:'Shop No. 09, Shri Jugal Kishore Ju Mandir Complex, Kishorganj Mohalla',addressLocality:'Panna',addressRegion:'Madhya Pradesh',postalCode:'488001',addressCountry:'IN'},
+  areaServed:{'@type':'City',name:'Panna'},
+  priceRange:'₹₹'
+})}></script>
+</head>
+<body class={isHome ? 'home-page' : ''}>
+<header class:list={['site-header', { 'home-header': isHome }]}> 
+  <div class="container nav">
+    <a class="brand" href="/"><img src="/logo.png" alt="Star Network fiber internet logo"/><span>STAR NETWORK</span></a>
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a href="/">Home</a><a href="/plans">Plans</a><a href="/services">Services</a><a href="/about">About Us</a><a href="/contact">Contact</a>
+      <a class="btn btn-primary nav-cta" href="/contact" data-enquiry>Get New Connection</a>
+    </nav>
+    <button class="menu-btn" type="button" aria-label="Open menu">☰</button>
+  </div>
+</header>
+<slot/>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand"><a class="brand" href="/"><img src="/logo.png" alt="Star Network logo"/><span>STAR NETWORK</span></a><p>Fiber internet, broadband and monthly internet plans for homes, professionals and businesses in Panna, Madhya Pradesh.</p></div>
+      <div class="footer-col"><h4>Quick Links</h4><a href="/">Home</a><a href="/plans">Internet Plans</a><a href="/services">Internet Services</a><a href="/about">About Us</a><a href="/contact">Contact</a></div>
+      <div class="footer-col"><h4>Contact</h4><a href="tel:+919424977692">9424977692</a><a href="tel:+919575552312">9575552312</a><a href="mailto:starwebinnvationspvtltd@gmail.com">starwebinnvationspvtltd@gmail.com</a><a href="/contact">Kishorganj Mohalla, Panna, MP</a></div>
+    </div>
+    <div class="copyright"><span>© 2017-2026 Star Network. All Rights Reserved.</span><span>Fiber Internet in Panna · Broadband in Panna</span></div>
+  </div>
+</footer>
+<script>
+  const menuBtn = document.querySelector('.menu-btn');
+  const navLinks = document.querySelector('.nav-links');
+  menuBtn?.addEventListener('click', () => navLinks?.classList.toggle('open'));
+</script>
+
+<div class="enquiry-modal" id="enquiryModal" aria-hidden="true">
+  <div class="enquiry-backdrop" data-enquiry-close></div>
+  <div class="enquiry-dialog" role="dialog" aria-modal="true" aria-labelledby="enquiryTitle">
+    <button class="enquiry-close" type="button" aria-label="Close" data-enquiry-close>×</button>
+    <div class="enquiry-kicker">STAR NETWORK • PANNA</div>
+    <h2 id="enquiryTitle">Get a New Connection</h2>
+    <p>Fill in your details and we will contact you shortly.</p>
+    <form id="enquiryForm">
+      <label class="enquiry-field"><span>Name</span><input id="enquiryName" name="name" type="text" placeholder="Enter your name" required /></label>
+      <label class="enquiry-field"><span>Mobile Number</span><input id="enquiryMobile" name="mobile" type="tel" inputmode="numeric" pattern="[0-9]{10}" maxlength="10" placeholder="Enter 10 digit mobile number" required /></label>
+      <label class="enquiry-field"><span>Select Plan</span><select id="enquiryPlan" name="plan" required>
+        <option value="">Select a plan</option>
+        <option>30 Mbps — ₹399 + 18% GST / month</option><option>50 Mbps — ₹599 + 18% GST / month</option>
+        <option>100 Mbps — ₹699 + 18% GST / month</option><option>150 Mbps — ₹999 + 18% GST / month</option>
+        <option>200 Mbps — ₹1,299 + 18% GST / month</option><option>250 Mbps — ₹1,499 + 18% GST / month</option>
+        <option>300 Mbps — ₹1,799 + 18% GST / month</option><option>500 Mbps — ₹3,999 + 18% GST / month</option>
+        <option>1 Gbps — ₹7,999 + 18% GST / month</option>
+      </select></label>
+      <button class="btn btn-primary enquiry-submit" type="submit">Send Enquiry <span>→</span></button>
+      <small class="enquiry-note">We will get back to you shortly.</small>
+    </form>
+  </div>
+</div>
+
+<script>
+  (() => {
+    const modal = document.getElementById('enquiryModal');
+    const form = document.getElementById('enquiryForm');
+    const plan = document.getElementById('enquiryPlan');
+    const nameInput = document.getElementById('enquiryName');
+    const openModal = (selectedPlan = '') => {
+      if (!modal) return;
+      modal.classList.add('is-open'); modal.setAttribute('aria-hidden','false'); document.body.classList.add('modal-open');
+      if (selectedPlan) {
+        const match = [...plan.options].find(o => o.textContent.startsWith(selectedPlan));
+        if (match) plan.value = match.value;
+      }
+      setTimeout(() => nameInput?.focus(), 80);
+    };
+    const closeModal = () => { modal?.classList.remove('is-open'); modal?.setAttribute('aria-hidden','true'); document.body.classList.remove('modal-open'); };
+    document.addEventListener('click', (e) => {
+      const trigger = e.target.closest('[data-enquiry]');
+      if (trigger) { e.preventDefault(); openModal(trigger.dataset.plan || ''); return; }
+      if (e.target.closest('[data-enquiry-close]')) closeModal();
+    });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+    form?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = nameInput.value.trim(); const mobile = document.getElementById('enquiryMobile').value.trim(); const selected = plan.value;
+      if (!/^[0-9]{10}$/.test(mobile)) { alert('Please enter a valid 10 digit mobile number.'); return; }
+      const message = `Hello Star Network, I want a new internet connection.%0A%0AName: ${encodeURIComponent(name)}%0AMobile: ${encodeURIComponent(mobile)}%0APlan: ${encodeURIComponent(selected)}`;
+      window.open(`https://wa.me/919424977692?text=${message}`, '_blank', 'noopener');
+      closeModal(); form.reset();
+    });
+  })();
+</script>
+</body>
+</html>

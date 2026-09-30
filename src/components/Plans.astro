@@ -1,0 +1,11 @@
+---
+const plans=[
+ ['30 Mbps','399','Basic'],['50 Mbps','599',''],['100 Mbps','699','Popular'],['150 Mbps','999',''],['200 Mbps','1299',''],['250 Mbps','1499',''],['300 Mbps','1799',''],['500 Mbps','3999',''],['1 Gbps','7999','Ultra']
+];
+const descriptions={ '30 Mbps':'Everyday browsing, social media and basic home usage.','50 Mbps':'Great for families, streaming and regular online activities.','100 Mbps':'A balanced plan for streaming, work, study and multiple devices.','150 Mbps':'More speed for connected homes and demanding everyday usage.','200 Mbps':'Faster downloads, streaming and smooth connectivity across devices.','250 Mbps':'Extra speed for work, entertainment and multiple connected devices.','300 Mbps':'High-speed connectivity for busy homes and demanding usage.','500 Mbps':'Powerful connectivity for users who need exceptional speed.','1 Gbps':'Ultra-fast fiber connectivity for users who want maximum speed.'};
+const full=Astro.props.full ?? false;
+---
+<div class:list={['grid', full ? 'all-plans' : 'plans-grid']}>
+{(full ? plans : [plans[0],plans[2],plans[6],plans[8]]).map(([speed,price,badge])=><article class:list={['plan-card',badge==='Popular'?'featured':'']}>
+{badge && <span class="badge">{badge}</span>}<h3>{speed} Plan</h3><div class="speed">{speed}</div><div class="price">₹{price} <small>+ 18% GST / month</small></div><p>{descriptions[speed]}</p><a class="btn btn-primary" href={`/contact?plan=${encodeURIComponent(speed)}`} data-enquiry data-plan={speed}>Get This Plan</a></article>)}
+</div>

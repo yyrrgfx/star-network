@@ -1,0 +1,261 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Plans from '../components/Plans.astro';
+
+const ottLogos = [
+  ['prime-video', 'Prime Video'],
+  ['jiohotstar', 'JioHotstar'],
+  ['sony-liv', 'Sony LIV'],
+  ['zee5', 'ZEE5'],
+  ['discovery-plus', 'discovery+'],
+  ['sun-nxt', 'SUN NXT'],
+  ['aha', 'aha'],
+  ['alt-balaji', 'ALT'],
+  ['shemaroo', 'ShemarooMe'],
+  ['fancode', 'FanCode'],
+  ['hungama', 'Hungama'],
+  ['tubi', 'Tubi'],
+  ['distrotv', 'DistroTV'],
+];
+---
+<Layout title="Fiber Internet & Broadband in Panna | Star Network" description="Star Network offers fiber internet, broadband and monthly internet plans in Panna, Madhya Pradesh, from 30 Mbps to 1 Gbps." keywords="fiber internet in panna, broadband in panna, internet in panna, star network in panna, high speed internet in panna, internet service provider in panna">
+  <main>
+    <section class="premium-hero" aria-label="Star Network highlights">
+      <div class="hero-slides">
+        <article class="hero-slide is-active">
+          <img src="/hero/ott-1.jpg" alt="Entertainment and streaming applications" />
+          <div class="hero-overlay"></div>
+          <div class="hero-glow"></div>
+          <div class="container hero-content">
+            <div class="hero-copy-panel">
+              <span class="hero-kicker"><i></i> STAR NETWORK • PANNA</span>
+              <h1>Unlimited Entertainment.<br /><em>Powered by Fiber.</em></h1>
+              <p>Stream, work, study and stay connected with fast fiber internet from <strong>30 Mbps to 1 Gbps</strong> — with monthly plans built around your needs.</p>
+              <div class="hero-actions">
+                <a class="btn btn-primary" href="/plans">Explore Plans <span>↗</span></a>
+                <a class="btn btn-glass" href="/contact" data-enquiry>Get New Connection</a>
+              </div>
+              <div class="hero-mini-stats"><span>30 Mbps – 1 Gbps</span><b>•</b><span>Monthly Plans</span><b>•</b><span>Panna</span></div>
+            </div>
+            <div class="hero-price-card">
+              <span>Starting from</span>
+              <strong>₹399<small> + GST</small></strong>
+              <label>30 Mbps Monthly</label>
+            </div>
+          </div>
+        </article>
+
+        <article class="hero-slide">
+          <img src="/hero/ott-2.jpg" alt="Family enjoying internet at home" />
+          <div class="hero-overlay"></div>
+          <div class="hero-glow"></div>
+          <div class="container hero-content">
+            <div class="hero-copy-panel">
+              <span class="hero-kicker"><i></i> MONTHLY FIBER PLANS</span>
+              <h1>Your Speed.<br /><em>Your Choice.</em></h1>
+              <p>Choose from <strong>30 Mbps to 1 Gbps</strong> and find a monthly plan that fits your home, work and entertainment.</p>
+              <div class="hero-actions">
+                <a class="btn btn-primary" href="/plans">View Monthly Plans <span>↗</span></a>
+                <a class="btn btn-glass" href="/contact">Check Connection</a>
+              </div>
+              <div class="hero-mini-stats"><span>Home</span><b>•</b><span>Work</span><b>•</b><span>Entertainment</span></div>
+            </div>
+            <div class="hero-price-card">
+              <span>Popular plan</span>
+              <strong>100<small> Mbps</small></strong>
+              <label>₹699 + 18% GST / month</label>
+            </div>
+          </div>
+        </article>
+
+        <article class="hero-slide">
+          <img src="/hero/ott-3.jpg" alt="Premium entertainment and streaming content" />
+          <div class="hero-overlay"></div>
+          <div class="hero-glow"></div>
+          <div class="container hero-content">
+            <div class="hero-copy-panel">
+              <span class="hero-kicker"><i></i> UP TO 1 GIGABIT</span>
+              <h1>Power Your Home<br /><em>at Full Speed.</em></h1>
+              <p>Choose the speed you need, from everyday browsing to powerful <strong>500 Mbps and 1 Gbps</strong> connectivity.</p>
+              <div class="hero-actions">
+                <a class="btn btn-primary" href="/plans">See All Speeds <span>↗</span></a>
+                <a class="btn btn-glass" href="tel:+919424977692">Call 9424977692</a>
+              </div>
+              <div class="hero-mini-stats"><span>Up to 1 Gbps</span><b>•</b><span>Local Support</span><b>•</b><span>Since 2017</span></div>
+            </div>
+            <div class="hero-price-card accent-card">
+              <span>Maximum speed</span>
+              <strong>1<small> Gbps</small></strong>
+              <label>₹7,999 + 18% GST / month</label>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <button class="hero-arrow hero-prev" type="button" aria-label="Previous slide">←</button>
+      <button class="hero-arrow hero-next" type="button" aria-label="Next slide">→</button>
+      <div class="hero-dots" aria-label="Slider navigation">
+        <button class="hero-dot is-active" type="button" aria-label="Slide 1"></button>
+        <button class="hero-dot" type="button" aria-label="Slide 2"></button>
+        <button class="hero-dot" type="button" aria-label="Slide 3"></button>
+      </div>
+    </section>
+
+    <section class="plan-showcase" aria-label="Star Network monthly fiber plans">
+      <div class="container">
+        <div class="showcase-top">
+          <div>
+            <span class="showcase-kicker">STAR NETWORK • MONTHLY FIBER</span>
+            <h2>Pick your <em>speed.</em></h2>
+          </div>
+          <a href="/plans" class="showcase-link">View all plans <span>↗</span></a>
+        </div>
+        <div class="plan-rail">
+          {[
+            ['30 Mbps','399','Basic'],['50 Mbps','599',''],['100 Mbps','699','Most Popular'],
+            ['150 Mbps','999',''],['200 Mbps','1299',''],['250 Mbps','1499',''],
+            ['300 Mbps','1799',''],['500 Mbps','3999',''],['1 Gbps','7999','Ultra Fast']
+          ].map(([speed,price,badge]) => (
+            <a class:list={['showcase-plan', badge === 'Most Popular' ? 'is-popular' : '']} href={`/contact?plan=${encodeURIComponent(speed)}`} data-enquiry data-plan={speed}>
+              {badge && <span class="showcase-badge">{badge}</span>}
+              <span class="showcase-speed">{speed}</span>
+              <strong>₹{price}<small> + GST</small></strong>
+              <span class="showcase-month">/ month</span>
+            </a>
+          ))}
+        </div>
+        <p class="showcase-note">All listed prices are exclusive of 18% GST. Monthly plans. Service availability depends on network coverage.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head premium-head">
+          <span class="eyebrow">MONTHLY FIBER PLANS</span>
+          <h2>Choose your <span>speed.</span></h2>
+          <p>Simple monthly plans for everyday browsing, work, streaming and high-speed connectivity.</p>
+        </div>
+        <Plans />
+        <div class="full"><a class="btn btn-outline" href="/plans">View All Plans <span>↗</span></a></div>
+      </div>
+    </section>
+
+    <section class="ott-section">
+      <div class="container">
+        <div class="ott-head">
+          <div>
+            <span class="eyebrow eyebrow-dark">ENTERTAINMENT READY</span>
+            <h2>Your favorite apps.<br /><span>One fast connection.</span></h2>
+          </div>
+          <p>Use your Star Network connection for streaming, movies, shows, music and more across your favorite entertainment platforms.</p>
+        </div>
+        <div class="ott-marquee">
+          <div class="ott-track">
+            {ottLogos.map(([file, name]) => (
+              <div class="ott-logo" title={name}>
+                <img src={`/ott/${file}.png`} alt={name} loading="lazy" />
+              </div>
+            ))}
+            {ottLogos.slice(0, 8).map(([file, name]) => (
+              <div class="ott-logo" aria-hidden="true">
+                <img src={`/ott/${file}.png`} alt="" loading="lazy" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section use-section">
+      <div class="container">
+        <div class="section-head premium-head"><span class="eyebrow">WHY STAR NETWORK</span><h2>Fast internet. <span>Simple experience.</span></h2><p>Everything you need for a connected everyday life.</p></div>
+        <div class="grid why-grid">
+          <article class="info-card premium-card"><div class="icon">↯</div><h3>High-Speed Fiber</h3><p>Fast connectivity for your everyday online needs.</p></article>
+          <article class="info-card premium-card"><div class="icon">◌</div><h3>Multiple Speeds</h3><p>Choose from 30 Mbps up to 1 Gbps.</p></article>
+          <article class="info-card premium-card"><div class="icon">₹</div><h3>Monthly Plans</h3><p>Simple monthly pricing across different speeds.</p></article>
+          <article class="info-card premium-card"><div class="icon">⌖</div><h3>Local Service</h3><p>A local internet service provider serving Panna.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section use-section light-alt">
+      <div class="container">
+        <div class="section-head premium-head"><span class="eyebrow">BUILT FOR YOUR NEEDS</span><h2>Internet for <span>every moment.</span></h2></div>
+        <div class="grid use-grid">
+          <article class="use-card premium-use"><span>01</span><h3>Home</h3><p>Browse, stream, study and keep your devices connected.</p></article>
+          <article class="use-card premium-use"><span>02</span><h3>Work From Home</h3><p>Stay connected for meetings, remote work and productivity.</p></article>
+          <article class="use-card premium-use"><span>03</span><h3>Entertainment</h3><p>Enjoy streaming, downloads and online content.</p></article>
+          <article class="use-card premium-use"><span>04</span><h3>Business</h3><p>Keep your team, customers and online services connected.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section location">
+      <div class="container location-inner">
+        <div><span class="eyebrow eyebrow-dark">PANNA, MADHYA PRADESH</span><h2>Your local fiber internet <span>partner.</span></h2><p>Star Network is based in Kishorganj Mohalla, Panna and offers monthly fiber plans from 30 Mbps to 1 Gbps.</p><a class="btn btn-primary" href="/contact">Get Connected <span>↗</span></a></div>
+        <div class="address-box"><div class="location-mark">★</div><h3>Star Network</h3><p>Shop No. 09, Shri Jugal Kishore Ju Mandir Complex,<br/>Kishorganj Mohalla, Panna,<br/>Madhya Pradesh – 488001</p><p><strong>Call:</strong> 9424977692 / 9575552312</p><a class="btn btn-outline map-open-link" href="https://maps.app.goo.gl/aN1uxVWYxTK9g4pH7" target="_blank" rel="noopener">Open in Google Maps ↗</a></div>
+      </div>
+    </section>
+
+    <section class="map-section" aria-label="Star Network location map">
+      <div class="container">
+        <div class="section-head premium-head">
+          <span class="eyebrow">FIND US</span>
+          <h2>Visit <span>Star Network</span></h2>
+          <p>Find our office in Kishorganj Mohalla, Panna, Madhya Pradesh.</p>
+        </div>
+        <div class="map-frame-wrap">
+          <iframe
+            src="https://www.google.com/maps?q=24.7228626,80.1889924&z=17&output=embed"
+            title="Star Network location on Google Maps"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div class="map-actions">
+          <a class="btn btn-primary" href="https://maps.app.goo.gl/aN1uxVWYxTK9g4pH7" target="_blank" rel="noopener">Open Google Maps ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section seo-local-section light-alt">
+      <div class="container">
+        <div class="section-head premium-head">
+          <span class="eyebrow">INTERNET IN PANNA</span>
+          <h2>Fiber Internet & Broadband in <span>Panna</span></h2>
+          <p>Star Network is a local internet service provider in Panna, Madhya Pradesh, offering monthly fiber broadband plans from 30 Mbps to 1 Gbps for home, work and everyday connectivity.</p>
+        </div>
+        <div class="seo-copy-grid">
+          <p>Looking for <strong>fiber internet in Panna</strong>, a <strong>broadband connection in Panna</strong> or a <strong>high-speed internet connection</strong>? Explore Star Network monthly plans and contact our team to check service availability in your area.</p>
+          <p>Star Network offers a range of <strong>internet plans in Panna</strong>, including 30 Mbps, 50 Mbps, 100 Mbps, 150 Mbps, 200 Mbps, 250 Mbps, 300 Mbps, 500 Mbps and 1 Gbps options.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta"><div class="container"><span class="cta-kicker">STAR NETWORK • PANNA</span><h2>Ready to get connected?</h2><p>Choose your plan and start your high-speed fiber journey.</p><a class="btn btn-white" href="/plans">Explore Plans <span>↗</span></a></div></section>
+  </main>
+
+  <script>
+    const slides = [...document.querySelectorAll('.hero-slide')];
+    const dots = [...document.querySelectorAll('.hero-dot')];
+    const prev = document.querySelector('.hero-prev');
+    const next = document.querySelector('.hero-next');
+    let current = 0;
+    let timer;
+
+    function showSlide(index) {
+      current = (index + slides.length) % slides.length;
+      slides.forEach((slide, i) => slide.classList.toggle('is-active', i === current));
+      dots.forEach((dot, i) => dot.classList.toggle('is-active', i === current));
+    }
+    function restart() {
+      clearInterval(timer);
+      timer = setInterval(() => showSlide(current + 1), 6500);
+    }
+    prev?.addEventListener('click', () => { showSlide(current - 1); restart(); });
+    next?.addEventListener('click', () => { showSlide(current + 1); restart(); });
+    dots.forEach((dot, i) => dot.addEventListener('click', () => { showSlide(i); restart(); }));
+    restart();
+  </script>
+</Layout>
